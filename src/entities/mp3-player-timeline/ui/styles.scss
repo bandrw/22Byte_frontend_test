@@ -1,0 +1,25 @@
+.Timeline {
+	$pointerSize: 15px;
+
+	padding: 10px 5px;
+	width: 100%;
+	cursor: pointer;
+
+	&-Bar {
+		width: 100%;
+		height: 2px;
+		background: #777;
+		border-radius: 1px;
+		position: relative;
+	}
+
+	&-Pointer {
+		width: $pointerSize;
+		height: $pointerSize;
+		background: green;
+		border-radius: 50%;
+		position: absolute;
+		top: 1px;
+		transform: translateY(-50%);
+	}
+}

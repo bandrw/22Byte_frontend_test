@@ -10,6 +10,8 @@
     "moduleResolution": "node",
     "paths": {
       "@components/*": ["components/*"],
+      "@hooks/*": ["hooks/*"],
+      "@store/*": ["store/*"],
       "@entities/*": ["entities/*"],
       "@features/*": ["features/*"],
       "@pages/*": ["pages/*"],

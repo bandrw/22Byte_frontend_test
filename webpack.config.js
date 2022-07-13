@@ -13,6 +13,17 @@ module.exports = {
 		clean: true,
 	},
 	devtool: 'source-map',
+	devServer: {
+		static: [
+			{
+				directory: path.join(__dirname, 'static'),
+				publicPath: '/static',
+			},
+		],
+		client: {
+			progress: true,
+		},
+	},
 	module: {
 		rules: [
 			{

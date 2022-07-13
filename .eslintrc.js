@@ -75,6 +75,8 @@ module.exports = {
 		'react/require-default-props': 0,
 		'simple-import-sort/imports': 'error',
 		'simple-import-sort/exports': 'error',
+		'arrow-body-style': 0,
+		'no-param-reassign': 0,
 	},
 	settings: {
 		'import/resolver': {
