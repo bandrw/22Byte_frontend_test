@@ -1,0 +1,11 @@
+.MP3Player {
+	border: 1px solid red;
+
+	&-SongsList {
+		border: 1px solid blue;
+	}
+
+	&-Controls {
+		border: 1px solid green;
+	}
+}

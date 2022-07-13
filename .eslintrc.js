@@ -36,6 +36,16 @@ module.exports = {
 		'import',
 	],
 	rules: {
+		'@typescript-eslint/member-delimiter-style': ['error', {
+			multiline: {
+				delimiter: 'semi',
+				requireLast: true,
+			},
+			singleline: {
+				delimiter: 'semi',
+				requireLast: false,
+			},
+		}],
 		indent: ['error', 'tab'],
 		'no-tabs': 0,
 		'import/prefer-default-export': 0,
