@@ -1,0 +1,32 @@
+import './styles.scss';
+
+import {cn} from '@bem-react/classname';
+import AppLink from '@components/AppLink';
+import Grid from '@components/Grid';
+import React from 'react';
+
+const cnFooter = cn('Footer');
+
+const Footer: React.FC = () => {
+	return (
+		<Grid
+			className={cnFooter()}
+			container
+			width="100%"
+			height={40}
+			justifyContent="center"
+			alignItems="center"
+		>
+			<Grid item>
+				<AppLink
+					external
+					href="https://github.com/bandrw/22Byte_frontend_test"
+				>
+					github.com/bandrw/22Byte_frontend_test
+				</AppLink>
+			</Grid>
+		</Grid>
+	);
+};
+
+export default Footer;

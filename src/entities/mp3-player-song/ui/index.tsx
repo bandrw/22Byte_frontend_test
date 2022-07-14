@@ -11,6 +11,8 @@ const MP3PlayerSong: React.FC<MP3PlayerSongProps> = ({song}) => (
 		{song.name}
 		{' - '}
 		{song.author}
+		{' - '}
+		{song.duration}
 	</Grid>
 );
 

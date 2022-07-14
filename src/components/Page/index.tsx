@@ -1,3 +1,6 @@
+import Footer from '@components/Footer';
+import Grid from '@components/Grid';
+import Header from '@components/Header';
 import React, {useEffect} from 'react';
 
 interface PageProps {
@@ -11,11 +14,22 @@ const Page: React.FC<PageProps> = ({children, title}) => {
 	}, [title]);
 
 	return (
-		<>
-			<div>Header</div>
-			{children}
-			<div>Footer</div>
-		</>
+		<Grid
+			container
+			direction="column"
+			minHeight="100vh"
+			justifyContent="space-between"
+		>
+			<Grid item>
+				<Header />
+			</Grid>
+			<Grid item>
+				{children}
+			</Grid>
+			<Grid item>
+				<Footer />
+			</Grid>
+		</Grid>
 	);
 };
 

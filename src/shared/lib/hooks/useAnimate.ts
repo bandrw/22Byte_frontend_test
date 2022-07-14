@@ -1,10 +1,10 @@
 interface UseAnimateProps {
-	fps?: number;
 	callback: () => void;
+	fps?: number;
 	enabled?: boolean;
 }
 
-export const useAnimate = ({fps = 60, callback, enabled = true}: UseAnimateProps) => {
+export const useAnimate = ({callback, fps = 60, enabled = true}: UseAnimateProps) => {
 	let now: number;
 	let then: number;
 	const fpsInterval = 1000 / fps;

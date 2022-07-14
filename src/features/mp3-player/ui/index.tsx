@@ -22,12 +22,27 @@ const MP3Player: React.FC<MP3PlayerProps> = ({songs}) => (
 		maxWidth={600}
 		className={cnMP3Player()}
 	>
-		<Grid item className={cnMP3Player('SongsList')}>
-			<Grid container columns={1} direction="column">
-				{songs.map((song) => <MP3PlayerSong key={song.id} song={song} />)}
+		<Grid
+			item
+			className={cnMP3Player('SongsList')}
+		>
+			<Grid
+				container
+				columns={1}
+				direction="column"
+			>
+				{songs.map((song) => (
+					<MP3PlayerSong
+						key={song.id}
+						song={song}
+					/>
+				))}
 			</Grid>
 		</Grid>
-		<Grid item className={cnMP3Player('Controls')}>
+		<Grid
+			item
+			className={cnMP3Player('Controls')}
+		>
 			<MP3PlayerControls />
 		</Grid>
 	</Grid>

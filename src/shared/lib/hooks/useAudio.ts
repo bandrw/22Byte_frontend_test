@@ -1,4 +1,4 @@
-import {useAnimate} from '@shared/lib/useAnimate';
+import {useAnimate} from '@shared/lib/hooks/useAnimate';
 import {useCallback, useEffect, useState} from 'react';
 
 interface UseAudioProps {
@@ -41,7 +41,12 @@ export const useAudio = ({src}: UseAudioProps) => {
 	useEffect(() => {
 		if (state.isPlaying && state.audio !== null) {
 			state.audio.play()
-				.catch(console.error);
+				.catch(() => {
+					setState((prevState) => ({
+						...prevState,
+						isPlaying: false,
+					}));
+				});
 		} else if (state.audio !== null && !state.isPlaying) {
 			state.audio.pause();
 		}
