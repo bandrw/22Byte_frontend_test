@@ -1,7 +1,7 @@
 import mp3PlayerReducer from '@features/mp3-player/model/mp3PlayerSlice';
 import {configureStore} from '@reduxjs/toolkit';
 
-const store = configureStore({
+export const store = configureStore({
 	reducer: {
 		mp3Player: mp3PlayerReducer,
 	},

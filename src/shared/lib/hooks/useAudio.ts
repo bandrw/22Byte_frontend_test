@@ -2,7 +2,7 @@ import {useAnimate} from '@shared/lib/hooks/useAnimate';
 import {useCallback, useEffect, useState} from 'react';
 
 interface UseAudioProps {
-	src: string;
+	src: string | null;
 }
 
 interface AudioState {
@@ -25,38 +25,52 @@ export const useAudio = ({src}: UseAudioProps) => {
 	});
 
 	const play = useCallback(() => {
-		setState((prevState) => (prevState.isPlaying ? prevState : ({
-			isPlaying: true,
-			audio: prevState.audio === null ? new Audio(src) : prevState.audio,
-		})));
-	}, [src]);
+		if (state.audio !== null) {
+			state.audio.play()
+				.then(() => {
+					setState((prevState) => (src === null ? prevState : ({
+						...prevState,
+						isPlaying: true,
+					})));
+				});
+		}
+	}, [src, state.audio]);
 
 	const pause = useCallback(() => {
+		if (state.audio !== null) state.audio.pause();
 		setState((prevState) => (!prevState.isPlaying ? prevState : ({
 			...prevState,
 			isPlaying: false,
 		})));
-	}, []);
+	}, [state.audio]);
 
 	useEffect(() => {
-		if (state.isPlaying && state.audio !== null) {
-			state.audio.play()
-				.catch(() => {
-					setState((prevState) => ({
-						...prevState,
-						isPlaying: false,
-					}));
-				});
-		} else if (state.audio !== null && !state.isPlaying) {
-			state.audio.pause();
-		}
-	}, [state.audio, state.isPlaying]);
+		setState((prevState) => {
+			if (src !== null && prevState.audio?.src !== src) {
+				const newAudio = new Audio(src);
+				if (prevState.audio !== null) prevState.audio.pause();
+				if (prevState.isPlaying) {
+					newAudio.play()
+						.catch(() => setState((pS) => ({
+							...pS, isPlaying: false,
+						})));
+				}
+				return {
+					...prevState,
+					audio: newAudio,
+				};
+			}
+			return prevState;
+		});
+	}, [src]);
 
 	return {
 		isPlaying: state.isPlaying,
 		play,
 		pause,
-		duration: state.audio !== null ? state.audio.duration : 0,
+		duration: state.audio !== null && !Number.isNaN(state.audio.duration)
+			? state.audio.duration
+			: 0,
 		currentTime,
 	};
 };
