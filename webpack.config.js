@@ -1,6 +1,7 @@
 const path = require('path');
 const {TsconfigPathsPlugin} = require('tsconfig-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -48,6 +49,14 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			template: './static/index.html',
+		}),
+		new CopyWebpackPlugin({
+			patterns: [
+				{
+					from: 'static',
+					to: 'static',
+				},
+			],
 		}),
 	],
 };
