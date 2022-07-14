@@ -26,6 +26,26 @@ export const mp3PlayerSlice = createSlice({
 		selectSong: (state: Mp3PlayerState, action: PayloadAction<Song | null>) => {
 			state.selectedSong = action.payload;
 		},
+		previousSong: (state: Mp3PlayerState) => {
+			if (state.selectedSong !== null) {
+				const currentSongIndex = state.playlist.findIndex(
+					(song) => song.id === state.selectedSong.id,
+				);
+				if (currentSongIndex > 0) {
+					state.selectedSong = state.playlist[currentSongIndex - 1];
+				}
+			}
+		},
+		nextSong: (state: Mp3PlayerState) => {
+			if (state.selectedSong !== null) {
+				const currentSongIndex = state.playlist.findIndex(
+					(song) => song.id === state.selectedSong.id,
+				);
+				if (currentSongIndex !== -1 && currentSongIndex < state.playlist.length - 1) {
+					state.selectedSong = state.playlist[currentSongIndex + 1];
+				}
+			}
+		},
 	},
 	extraReducers: {
 		[getAllSongsAction.fulfilled.type]: (state: Mp3PlayerState, action: PayloadAction<Song[]>) => {
@@ -34,5 +54,5 @@ export const mp3PlayerSlice = createSlice({
 	},
 });
 
-export const {selectSong} = mp3PlayerSlice.actions;
+export const {selectSong, previousSong, nextSong} = mp3PlayerSlice.actions;
 export default mp3PlayerSlice.reducer;
