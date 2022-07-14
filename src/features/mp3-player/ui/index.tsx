@@ -30,12 +30,17 @@ const MP3Player: React.FC<MP3PlayerProps> = ({songs}) => (
 				container
 				columns={1}
 				direction="column"
+				spacing={1}
 			>
 				{songs.map((song) => (
-					<MP3PlayerSong
+					<Grid
+						item
 						key={song.id}
-						song={song}
-					/>
+					>
+						<MP3PlayerSong
+							song={song}
+						/>
+					</Grid>
 				))}
 			</Grid>
 		</Grid>

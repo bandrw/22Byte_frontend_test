@@ -4,4 +4,5 @@ export interface Song {
 	author: string;
 	src: string;
 	duration: number;
+	image: string;
 }

@@ -9,13 +9,28 @@ import React from 'react';
 
 const defaultSongs: Song[] = [
 	{
-		id: '1', name: 'Good Time', author: 'Unknown', src: '/static/songs/good-time.mp3', duration: 100,
+		id: '1',
+		name: 'Good Time',
+		author: 'AShamaluevMusic',
+		src: '/static/songs/good-time.mp3',
+		duration: 146,
+		image: '/static/images/random-img-1.png',
 	},
 	{
-		id: '2', name: 'Journey', author: 'Unknown', src: '/static/songs/journey.mp3', duration: 100,
+		id: '2',
+		name: 'Journey',
+		author: 'AShamaluevMusic',
+		src: '/static/songs/journey.mp3',
+		duration: 164,
+		image: '/static/images/random-img-2.png',
 	},
 	{
-		id: '3', name: 'World Peace', author: 'Unknown', src: '/static/songs/world-peace.mp3', duration: 100,
+		id: '3',
+		name: 'World Peace',
+		author: 'AShamaluevMusic',
+		src: '/static/songs/world-peace.mp3',
+		duration: 191,
+		image: '/static/images/random-img-3.png',
 	},
 ];
 
