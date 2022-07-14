@@ -83,6 +83,8 @@ module.exports = {
 		'simple-import-sort/exports': 'error',
 		'arrow-body-style': 0,
 		'no-param-reassign': 0,
+		'jsx-a11y/media-has-caption': 0,
+		'consistent-return': 0,
 	},
 	settings: {
 		'import/resolver': {

@@ -22,6 +22,7 @@ export const useAudio = ({src}: UseAudioProps) => {
 
 	useAnimate({
 		callback: forceUpdate,
+		fps: 10,
 	});
 
 	const updateCurrentTime = useCallback((newTime: number) => {
