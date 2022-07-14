@@ -14,15 +14,19 @@ export const useAudio = ({src}: UseAudioProps) => {
 	const [state, setState] = useState<AudioState>({
 		isPlaying: false, audio: null,
 	});
-	const [currentTime, setCurrentTime] = useState(0);
+	const [, setSt] = useState(false);
 
-	const updateCurrentTime = useCallback(() => {
-		if (state.isPlaying && state.audio !== null) setCurrentTime(state.audio.currentTime);
-	}, [state.audio, state.isPlaying]);
+	const forceUpdate = useCallback(() => {
+		setSt((prevState) => !prevState);
+	}, []);
 
 	useAnimate({
-		callback: updateCurrentTime,
+		callback: forceUpdate,
 	});
+
+	const updateCurrentTime = useCallback((newTime: number) => {
+		if (state.audio !== null) state.audio.currentTime = newTime;
+	}, [state.audio]);
 
 	const play = useCallback(() => {
 		if (state.audio !== null) {
@@ -71,6 +75,7 @@ export const useAudio = ({src}: UseAudioProps) => {
 		duration: state.audio !== null && !Number.isNaN(state.audio.duration)
 			? state.audio.duration
 			: 0,
-		currentTime,
+		currentTime: state.audio === null ? 0 : state.audio.currentTime,
+		updateCurrentTime,
 	};
 };

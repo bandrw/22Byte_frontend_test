@@ -1,27 +1,40 @@
-import './styles.scss';
-
-import {cn} from '@bem-react/classname';
+import Slider from '@components/Slider';
 import React from 'react';
 
-const cnTimeline = cn('Timeline');
-
 interface MP3PlayerTimelineProps {
-	progress: number;
+	position: number;
+	duration: number;
+	updateCurrentTime: (time: number) => void;
+	onMouseDown: () => void;
+	onMouseUp: () => void;
+	disabled?: boolean;
 }
 
-const MP3PlayerTimeline: React.FC<MP3PlayerTimelineProps> = ({progress}) => (
-	<div className={cnTimeline()}>
-		<div className={cnTimeline('Bar')}>
-			{progress >= 0 && progress <= 1 ? (
-				<div
-					className={cnTimeline('Pointer')}
-					style={{
-						left: `${progress * 100}%`,
-					}}
-				/>
-			) : null}
-		</div>
-	</div>
-);
+const MP3PlayerTimeline: React.FC<MP3PlayerTimelineProps> = ({
+	position,
+	duration,
+	updateCurrentTime,
+	onMouseDown,
+	onMouseUp,
+	disabled = false,
+}) => {
+	return (
+		<Slider
+			disabled={disabled}
+			min={0}
+			step={1}
+			max={duration}
+			value={position}
+			onChange={(_, time: number) => {
+				updateCurrentTime(time);
+			}}
+			onMouseDown={onMouseDown}
+			onMouseUp={onMouseUp}
+			sx={{
+				width: 'calc(100% - 40px)',
+			}}
+		/>
+	);
+};
 
 export default MP3PlayerTimeline;

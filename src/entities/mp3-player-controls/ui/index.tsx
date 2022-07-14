@@ -14,7 +14,7 @@ const MP3PlayerControls: React.FC = () => {
 	const {selectedSong} = useAppSelector((state) => state.mp3Player);
 	const dispatch = useAppDispatch();
 
-	const {isPlaying, play, pause, currentTime, duration} = useAudio({
+	const {isPlaying, play, pause, currentTime, updateCurrentTime, duration} = useAudio({
 		src: selectedSong !== null ? selectedSong.src : null,
 	});
 	const isControlsDisabled = selectedSong === null;
@@ -27,11 +27,12 @@ const MP3PlayerControls: React.FC = () => {
 			direction="column"
 		>
 			<MP3PlayerTimeline
-				progress={
-					currentTime !== 0 && duration !== 0
-						? currentTime / duration
-						: 0
-				}
+				duration={duration}
+				position={currentTime}
+				updateCurrentTime={updateCurrentTime}
+				onMouseDown={pause}
+				onMouseUp={play}
+				disabled={isControlsDisabled}
 			/>
 			<Grid
 				container
