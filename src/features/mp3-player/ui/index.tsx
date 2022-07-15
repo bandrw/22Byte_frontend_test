@@ -8,6 +8,7 @@ import Tabs from '@components/Tabs';
 import MP3PlayerControls from '@entities/mp3-player-controls/ui';
 import {Song} from '@entities/mp3-player-song/model/types';
 import MP3PlayerSong from '@entities/mp3-player-song/ui';
+import MP3PlayerSort from '@entities/mp3-player-sort/ui';
 import Waveform from '@features/waveform/ui';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import WavesIcon from '@mui/icons-material/Waves';
@@ -78,6 +79,9 @@ const MP3Player: React.FC<MP3PlayerProps> = ({songs}) => {
 				index={0}
 				value={currentTab}
 			>
+				<Grid item>
+					<MP3PlayerSort />
+				</Grid>
 				<Grid
 					item
 					className={cnMP3Player('SongsList')}

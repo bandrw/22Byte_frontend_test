@@ -85,6 +85,7 @@ module.exports = {
 		'no-param-reassign': 0,
 		'jsx-a11y/media-has-caption': 0,
 		'consistent-return': 0,
+		'no-nested-ternary': 0,
 	},
 	settings: {
 		'import/resolver': {

@@ -1,0 +1,13 @@
+.MP3PlayerSort {
+	position: relative;
+
+	&-Modal {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: #eee;
+		max-width: 300px;
+		border-radius: 20px;
+	}
+}
