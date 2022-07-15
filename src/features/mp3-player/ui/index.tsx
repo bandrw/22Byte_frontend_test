@@ -28,10 +28,13 @@ const MP3Player: React.FC<MP3PlayerProps> = ({songs}) => {
 		<Grid
 			container
 			direction="column"
+			flexWrap="nowrap"
 			columns={1}
 			rowGap={2}
 			maxWidth={600}
+			maxHeight={500}
 			className={cnMP3Player()}
+			margin={2}
 		>
 			<Tabs
 				centered

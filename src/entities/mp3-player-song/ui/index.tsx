@@ -31,6 +31,7 @@ const MP3PlayerSong: React.FC<MP3PlayerSongProps> = ({song}) => {
 				container
 				className={cnMP3PlayerSong()}
 				alignItems="center"
+				flexWrap="nowrap"
 			>
 				<Grid
 					item
@@ -50,14 +51,14 @@ const MP3PlayerSong: React.FC<MP3PlayerSongProps> = ({song}) => {
 						alignItems="flex-start"
 					>
 						<Grid
-							item
 							className={cnMP3PlayerSong('Name')}
+							maxWidth={200}
 						>
 							{song.name}
 						</Grid>
 						<Grid
-							item
 							className={cnMP3PlayerSong('Author')}
+							maxWidth={200}
 						>
 							{song.author}
 						</Grid>

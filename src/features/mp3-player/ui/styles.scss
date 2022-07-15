@@ -5,6 +5,8 @@
 	box-shadow: #cccccc 0 0 20px 5px;
 
 	&-SongsList {
+		overflow: scroll;
+		max-height: 300px;
 	}
 
 	&-Controls {
