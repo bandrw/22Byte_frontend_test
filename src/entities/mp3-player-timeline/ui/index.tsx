@@ -32,6 +32,10 @@ const MP3PlayerTimeline: React.FC<MP3PlayerTimelineProps> = ({
 			onMouseUp={onMouseUp}
 			sx={{
 				width: 'calc(100% - 40px)',
+				'& .MuiSlider-thumb': {
+					width: 15,
+					height: 15,
+				},
 			}}
 		/>
 	);

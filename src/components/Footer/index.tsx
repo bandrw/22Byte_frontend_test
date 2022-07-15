@@ -3,6 +3,7 @@ import './styles.scss';
 import {cn} from '@bem-react/classname';
 import AppLink from '@components/AppLink';
 import Grid from '@components/Grid';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import React from 'react';
 
 const cnFooter = cn('Footer');
@@ -17,6 +18,17 @@ const Footer: React.FC = () => {
 			justifyContent="center"
 			alignItems="center"
 		>
+			<Grid
+				item
+				marginRight={1}
+			>
+				<Grid
+					container
+					alignItems="center"
+				>
+					<GitHubIcon />
+				</Grid>
+			</Grid>
 			<Grid item>
 				<AppLink
 					external

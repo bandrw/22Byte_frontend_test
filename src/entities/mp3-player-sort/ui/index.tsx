@@ -5,6 +5,7 @@ import Button from '@components/Button';
 import Grid from '@components/Grid';
 import IconButton from '@components/IconButton';
 import Modal from '@components/Modal';
+import Tooltip from '@components/Tooltip';
 import {sortMethods} from '@entities/mp3-player-sort/lib/sorting';
 import {sortBy} from '@features/mp3-player/model/mp3PlayerSlice';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
@@ -28,9 +29,14 @@ const MP3PlayerSort: React.FC = () => {
 
 	return (
 		<div>
-			<IconButton onClick={handleOpen}>
-				<SortIcon />
-			</IconButton>
+			<Tooltip
+				placement="right"
+				title="Sort playlist"
+			>
+				<IconButton onClick={handleOpen}>
+					<SortIcon />
+				</IconButton>
+			</Tooltip>
 			<Modal
 				open={open}
 				onClose={handleClose}

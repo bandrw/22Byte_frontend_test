@@ -26,6 +26,10 @@ const MP3PlayerSong: React.FC<MP3PlayerSongProps> = ({song}) => {
 			onClick={() => {
 				dispatch(selectSong(song));
 			}}
+			sx={{
+				padding: '5px 15px',
+				border: selectedSong !== song ? '1px solid transparent' : undefined,
+			}}
 		>
 			<Grid
 				container

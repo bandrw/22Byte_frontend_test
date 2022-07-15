@@ -44,6 +44,12 @@ const MP3PlayerControls: React.FC = () => {
 						size="small"
 						disabled={isControlsDisabled}
 						onClick={() => dispatch(previousSong())}
+						sx={{
+							'& .MuiSvgIcon-root': {
+								'font-size': '1.7rem',
+								color: 'var(--action-color)',
+							},
+						}}
 					>
 						<ArrowLeftIcon fontSize="medium" />
 					</IconButton>
@@ -53,8 +59,22 @@ const MP3PlayerControls: React.FC = () => {
 						size="large"
 						disabled={isControlsDisabled}
 						onClick={() => (isPlaying ? pause() : play())}
+						sx={{
+							'& .MuiSvgIcon-root': {
+								'font-size': '3rem',
+								color: 'var(--action-color)',
+							},
+						}}
 					>
-						{isPlaying ? <PauseCircleIcon fontSize="large" /> : <PlayCircleIcon fontSize="large" />}
+						{isPlaying ? (
+							<PauseCircleIcon
+								fontSize="large"
+							/>
+						) : (
+							<PlayCircleIcon
+								fontSize="large"
+							/>
+						)}
 					</IconButton>
 				</Grid>
 				<Grid item>
@@ -62,6 +82,12 @@ const MP3PlayerControls: React.FC = () => {
 						size="small"
 						disabled={isControlsDisabled}
 						onClick={() => dispatch(nextSong())}
+						sx={{
+							'& .MuiSvgIcon-root': {
+								'font-size': '1.7rem',
+								color: 'var(--action-color)',
+							},
+						}}
 					>
 						<ArrowRightIcon fontSize="medium" />
 					</IconButton>
